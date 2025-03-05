@@ -4,7 +4,7 @@
 концовки: 0/3
 пользователь влияет на исход
 условные конструкции: 1/4
-цикл while: 0/1
+цикл while: 1/1
 цикл for: 1/1
 методы списков и множеств: 2/2
 готовый словарь: 0/1
@@ -18,7 +18,7 @@ NO = "нет no"
 def check_answer(answer):
     if answer in YES:
         return 1
-    if answer in NO:
+    elif answer in NO:
         return 0
 
 def ask_answer(variables):
