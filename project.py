@@ -12,6 +12,12 @@
 запись рута в файл
 """
 
+def check_answer(answer):
+    if answer == "Да" or answer == "Yes" or answer == 'y' or answer == 'Y':
+        return 0
+    if answer == "Нет" or answer == "No" or answer == 'n' or answer == 'N':
+        return 1
+
 text = ["ТИХИЙ ДЕН: ВКУС БРЕПСИ\n\n"]
 story_paths = {}
 print("ИГРА НАЧИНАЕТСЯ")
