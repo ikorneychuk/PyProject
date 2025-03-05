@@ -20,6 +20,7 @@ def ask_answer(variables):
 #рестарт игры в случае первой концовки
 def restart(answer):
     answers = []
+    text = {}
     if answer in YES:
         print(story_paths["title"], story_paths["intro"], story_paths["intermission_1"], story_paths["path_1"], sep = "")    #начало
         if check_answer(ask_answer("".join([YES, NO]))):    #первый выбор
@@ -35,16 +36,20 @@ def restart(answer):
             else:
                 print(story_paths["answer_2"][1])
                 answers.append(story_paths["answer_2"][1])
-                
+   
         for item in story_paths.items():    #добавление сюжета в переменную для записи в файл
             if type(item[1]) is not type([]): 
                 text[item[0]] = item[1]
             else:
-                text[item[0]] = answers.pop(0)    #работа с пользовательскими ответами
+                if answers[0].endswith("Начать заново?"):
+                    answers[0] = answers[0].replace("Начать заново?", "")
+                    text[item[0]] = answers.pop(0)    #работа с пользовательскими ответами
+                else:
+                    text[item[0]] = answers.pop(0)
                 if len(answers) == 0:
                     break
-
-        with open("story.txt", "w", encoding = "UTF-8") as final_story:    #запись в файл
+                    
+        with open("story_new.txt", "w", encoding = "UTF-8") as final_story:    #запись в файл
             for line in text.items():
                 print("".join(line[1]), file = final_story)
                 
@@ -80,12 +85,19 @@ else:
 
 for item in story_paths.items():    #добавление сюжета в переменную для записи в файл
     if type(item[1]) is not type([]): 
-        text[item[0]] = item[1]
+    text[item[0]] = item[1]
     else:
-        text[item[0]] = answers.pop(0)    #работа с пользовательскими ответами
+        if answers[0].endswith("Начать заново?"):
+            answers[0] = answers[0].replace("Начать заново?", "")
+            text[item[0]] = answers.pop(0)    #работа с пользовательскими ответами
+        else:
+            text[item[0]] = answers.pop(0)
         if len(answers) == 0:
             break
 
+with open("story.txt", "w", encoding = "UTF-8") as final_story:    #запись в файл
+    for line in text.items():
+        print("".join(line[1]), file = final_story)
 with open("story.txt", "w", encoding = "UTF-8") as final_story:    #запись в файл
     for line in text.items():
         print("".join(line[1]), file = final_story)
