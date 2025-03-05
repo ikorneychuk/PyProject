@@ -3,10 +3,10 @@
 цельный сюжет
 концовки: 0/3
 пользователь влияет на исход
-условные конструкции: 0/4
+условные конструкции: 1/4
 цикл while: 0/1
 цикл for: 1/1
-методы списков и множеств: 1/2
+методы списков и множеств: 2/2
 готовый словарь: 0/1
 словарь по ходу: 1/1
 запись рута в файл
@@ -21,6 +21,11 @@ def check_answer(answer):
 story_paths = {}
 text = {}
 answers = []
+
+if check_answer(input()):
+    answers.append(story_paths[][0])
+else:
+    answers.append(story_paths[][1])
 
 text["title"] = "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"
 for key in story_paths.keys():
