@@ -23,7 +23,7 @@ def check_answer(answer):
 
 def ask_answer(variables):
     while True:
-        answer = input()
+        answer = input().lower()
         if answer in variables:
             break
     return answer
