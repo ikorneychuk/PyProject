@@ -18,13 +18,14 @@ def check_answer(answer):
     if answer == "Нет" or answer == "No" or answer == 'n' or answer == 'N':
         return 0
 
-text = {"title" : "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"}
+text = {}
 story_paths = {}
+answers = []
 print("ИГРА НАЧИНАЕТСЯ")
 
 text["title"] = "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"
-for item in story_paths.items():
-    text[item[0]] = item[1][answers.pop(answers[0])]
+for key in story_paths.keys():
+    text[key] = answers.pop(0)
 
 with open("story.txt", "w", encoding = "UTF-8") as final_story:
     for line in text.items():
