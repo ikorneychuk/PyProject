@@ -22,6 +22,8 @@ story_paths = {}
 text = {}
 answers = []
 
+
+
 if check_answer(input()):
     answers.append(story_paths[][0])
 else:
