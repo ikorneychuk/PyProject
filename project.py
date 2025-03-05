@@ -17,13 +17,15 @@ def ask_answer(variables):
             break
     return answer
 
+#рестарт игры в случае первой концовки
 def restart(answer):
+    answers = []
     if answer in YES:
         print(story_paths["title"], story_paths["intro"], story_paths["intermission_1"], story_paths["path_1"], sep = "")    #начало
         if check_answer(ask_answer("".join([YES, NO]))):    #первый выбор
             print(story_paths["answer_1"][0])
             answers.append(story_paths["answer_1"][0])
-            restart(ask_answer("".join([YES, NO])))
+            restart(ask_answer("".join([YES, NO])))    #рестарт по желанию
         else:
             print(story_paths["answer_1"][1], story_paths["path_2"])
             answers.append(story_paths["answer_1"][1])
@@ -33,6 +35,19 @@ def restart(answer):
             else:
                 print(story_paths["answer_2"][1])
                 answers.append(story_paths["answer_2"][1])
+                
+        for item in story_paths.items():    #добавление сюжета в переменную для записи в файл
+            if type(item[1]) is not type([]): 
+                text[item[0]] = item[1]
+            else:
+                text[item[0]] = answers.pop(0)    #работа с пользовательскими ответами
+                if len(answers) == 0:
+                    break
+
+        with open("story.txt", "w", encoding = "UTF-8") as final_story:    #запись в файл
+            for line in text.items():
+                print("".join(line[1]), file = final_story)
+                
     elif answer in NO:
             print('Спасибо за игру!')
 
@@ -52,7 +67,7 @@ print(story_paths["title"], story_paths["intro"], story_paths["intermission_1"],
 if check_answer(ask_answer("".join([YES, NO]))):    #первый выбор
     print(story_paths["answer_1"][0])
     answers.append(story_paths["answer_1"][0])
-    restart(ask_answer("".join([YES, NO])))
+    restart(ask_answer("".join([YES, NO])))    #рестарт по желанию
 else:
     print(story_paths["answer_1"][1], story_paths["path_2"])
     answers.append(story_paths["answer_1"][1])
