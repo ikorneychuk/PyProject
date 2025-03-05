@@ -21,7 +21,6 @@ def check_answer(answer):
 story_paths = {}
 text = {}
 answers = []
-print("ИГРА НАЧИНАЕТСЯ")
 
 text["title"] = "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"
 for key in story_paths.keys():
