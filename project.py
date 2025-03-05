@@ -18,9 +18,9 @@ def check_answer(answer):
     if answer == "Нет" or answer == "No" or answer == 'n' or answer == 'N':
         return 0
 
-story_paths = {}
-text = {}
-answers = []
+story_paths = {}    #готовый словарь с развилками
+text = {}    #собирается по ходу
+answers = []    #ответы пользователя
 
 
 
