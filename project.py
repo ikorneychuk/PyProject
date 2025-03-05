@@ -22,7 +22,20 @@ story_paths = {}    #готовый словарь с развилками
 text = {}    #собирается по ходу
 answers = []    #ответы пользователя
 
-
+"""
+print("Блять, ладно, пора отправляться искать это сокровиша. Но сука, не зайти ли мне в кабака промочить глотку?")
+print("ДА или НЕТ?")
+secret_counter = 0
+secret_answers = ["Не", "не"]
+while secret_counter != 3:
+    if check_answer(input()):
+        if not secret_counter == 2: print(secret_answers[secret_counter])
+        secret_counter+= 1
+    else:
+        break
+else:
+    print("секретная концовка")
+"""
 
 if check_answer(input()):
     answers.append(story_paths[][0])
