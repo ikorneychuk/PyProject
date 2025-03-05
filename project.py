@@ -12,11 +12,21 @@
 запись рута в файл
 """
 
+YES = "да yes"
+NO = "нет no"
+
 def check_answer(answer):
-    if answer == "Да" or answer == "Yes" or answer == 'y' or answer == 'Y':
+    if answer in YES:
         return 1
-    if answer == "Нет" or answer == "No" or answer == 'n' or answer == 'N':
+    if answer in NO:
         return 0
+
+def ask_answer(variables):
+    while True:
+        answer = input()
+        if answer in variables:
+            break
+    return answer
 
 story_paths = {}    #готовый словарь с развилками
 text = {}    #собирается по ходу
