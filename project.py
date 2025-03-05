@@ -22,7 +22,9 @@ text = {"title" : "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"}
 story_paths = {}
 print("ИГРА НАЧИНАЕТСЯ")
 
-for i 
+counter = 0
+for key in range(1, len(text.keys()) + 1):
+    text[list(text.keys())[key]] = 
 
 with open("story.txt", "w", encoding = "UTF-8") as final_story:
     for line in text.items():
