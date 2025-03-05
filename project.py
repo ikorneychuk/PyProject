@@ -18,9 +18,11 @@ def check_answer(answer):
     if answer == "Нет" or answer == "No" or answer == 'n' or answer == 'N':
         return 0
 
-text = {"title" : "ТИХИЙ ДЕН: ВКУС БРЕПСИ\n\n"}
+text = {"title" : "ТИХИЙ ДЕН: ИГРА НАЧИНАЕТСЯ\n\n"}
 story_paths = {}
 print("ИГРА НАЧИНАЕТСЯ")
+
+for i 
 
 with open("story.txt", "w", encoding = "UTF-8") as final_story:
     for line in text.items():
