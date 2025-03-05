@@ -13,13 +13,8 @@
 """
 
 text = ["ТИХИЙ ДЕН: ВКУС БРЕПСИ\n\n"]
-
+story_paths = {}
 print("ИГРА НАЧИНАЕТСЯ")
 
 with open("story.txt", "w", encoding = "UTF-8") as final_story:
     print(" ".join(text), file = final_story)
-
-'''
-{EQ
-
-'''
